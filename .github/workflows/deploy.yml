@@ -13,8 +13,13 @@ jobs:
 
       - name: Inject API Key
         run: |
-          # Заменяем заглушку в index.html на реальный секрет из репозитория GitHub
-          sed -i 's/YOUR_API_KEY_HERE/${{ secrets.GEMINI_API_KEY }}/g' index.html
+          python3 -c '
+          with open("index.html", "r", encoding="utf-8") as f:
+              content = f.read()
+          content = content.replace("YOUR_API_KEY_HERE", "${{ secrets.GEMINI_API_KEY }}")
+          with open("index.html", "w", encoding="utf-8") as f:
+              f.write(content)
+          '
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
