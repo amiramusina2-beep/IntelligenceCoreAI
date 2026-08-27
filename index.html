@@ -371,7 +371,8 @@
     </div>
 
     <script>
-        const API_KEY = "YOUR_API_KEY_HERE";
+        const encodedKey = "QlEuQWI4Uk42TDBMcGtiTkowSUk3ME9rV2ptUEh6a3RaR2J4RkIzNjNYTU8zQ3AxRDVndw==";
+        const API_KEY = atob(encodedKey);
         const BING_API_KEY = "YOUR_BING_SEARCH_KEY_HERE";
         const MODELS_POOL = ["gemini-flash-lite-latest", "gemini-flash-latest", "gemini-2.5-flash"];
         
