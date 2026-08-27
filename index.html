@@ -846,7 +846,7 @@
                         },
                         body: JSON.stringify({
                             contents: [...] // твой массив сообщений
-                            })
+                        })
                     });
                     const data = await response.json();
                     if (!response.ok) throw new Error(data.error?.message || `HTTP ${response.status}`);
